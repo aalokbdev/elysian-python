@@ -128,13 +128,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MANGO_JWT_SETTINGS = {
-    "db_host": "mongodb", # os.getenv("MONGO_DB_HOST", "mongodb"),
-    "db_port": "27017", #os.getenv("MONGO_DB_PORT", 27017),
-    "db_name": "admin", #os.getenv("MONGO_DB_NAME", "auth_db"),
-    "db_user": "root", #os.getenv("MONGO_DB_USER", "root"),
-    "db_pass": "example", #os.getenv("MONGO_DB_PASS", "example"),
+    "db_host": os.getenv("MONGO_DB_HOST", "mongodb"),
+    "db_port": os.getenv("MONGO_DB_PORT", '27017'),
+    "db_name": "admin",
+    "db_user": os.getenv("MONGO_DB_USER", "root"),
+    "db_pass": os.getenv("MONGO_DB_PASS", "example"),
     "secondary_username_field": "username"
 }
-
-# docker run -it --rm mongo mongosh --host mongodb -u root -p example --authenticationDatabase admin some-db
-# docker run -it --network some-network mongo mongosh --host mongodb -u root -p example --authenticationDatabase admin 
